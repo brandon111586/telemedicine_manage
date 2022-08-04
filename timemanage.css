@@ -1,63 +1,62 @@
-  .availability {
-    font-size: 1.1rem;
-  }
-  
-  .availability-title {
-    text-align: center;
-  }
-  
-  .time-picker {
-    table-layout: fixed;
+.availability {
+  font-size: 1.1rem;
+}
+
+.availability-title {
+  text-align: center;
+}
+
+.time-picker {
+  table-layout: fixed;
   /*   border-collapse: collapse; */
   /*   border: 1px solid hsla(0, 0%, 0%, 0.1); */
-    margin: 0 auto;
-  }
-  
-  .time-picker th {
-    padding: 1em;
-  }
-  
-  .time-picker-day,
-  .time-picker-row th {
-    background-color: hsla(0, 0%, 0%, 0.1);
-    border: 1px solid hsla(0, 0%, 0%, 0.1);
-    color: hsla(0, 0%, 0%, 0.65);
-    text-align: center;
-  }
-  
-  .time-picker-time:hover ~ .time-picker-cell {
-    background-color: rgba(30, 144, 255, 0.50);
-    
-  }
-  
-  .time-picker-cell {
-    border: 1px solid hsla(0, 0%, 0%, 0.15);
-    padding: 2em;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .time-picker-cell.mod-selected,
-  .time-picker-cell.mod-selected:hover,
-  .time-picker-time:hover ~ .time-picker-cell.mod-selected {
-    background-color: dodgerblue;
-  }
-  
-  .time-picker-cell:hover {
-    background-color: rgba(30, 144, 255, 0.50);
-  }
-
-  .save,.clean {
-    margin-top: 1em;
-    margin-left:5em;
-  }
-
-.raise:hover{
-    transition: transform .2s;
-    transform: translateY(-0.25em);
+  margin: 0 auto;
 }
 
-.nav-underline:hover{
-  text-decoration:underline;
+.time-picker th {
+  padding: 1em;
 }
 
+.time-picker-day,
+.time-picker-row th {
+  background-color: hsla(0, 0%, 0%, 0.1);
+  border: 1px solid hsla(0, 0%, 0%, 0.1);
+  color: hsla(0, 0%, 0%, 0.65);
+  text-align: center;
+}
+
+.time-picker-time:hover ~ .time-picker-cell {
+  background-color: rgba(30, 144, 255, 0.5);
+}
+
+.time-picker-cell {
+  border: 1px solid hsla(0, 0%, 0%, 0.15);
+  padding: 2em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.time-picker-cell.mod-selected,
+.time-picker-cell.mod-selected:hover,
+.time-picker-time:hover ~ .time-picker-cell.mod-selected {
+  background-color: dodgerblue;
+}
+
+.time-picker-cell:hover {
+  background-color: rgba(30, 144, 255, 0.5);
+}
+
+.save,
+.clean {
+  margin-top: 1em;
+  margin-left: 5em;
+}
+
+.raise:hover {
+  transition: transform 0.2s;
+  transform: translateY(-0.25em);
+}
+
+.nav-underline:hover {
+  text-decoration: underline;
+}
