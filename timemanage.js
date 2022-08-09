@@ -20,7 +20,6 @@ var app = new Vue({
             else{
                 this.open_time[day].push(time)
             }
-            console.log(this.open_time[day]);
         },
         click_save(){ //把開診時間表點選的日期格子以及輸入的開診時間資料包成Json傳到後端
         axios
