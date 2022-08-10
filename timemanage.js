@@ -11,6 +11,11 @@ var app = new Vue({
         tab:1, //預設頁面標籤為1(預約列表:1,開診時間表:2)
         
     }, 
+    mounted() {  //用sessionStorage暫存目前分頁切換狀態，網頁重新整理後會停在當前頁面而不會跑到預設的tab1分頁
+        if (sessionStorage.tab) { 
+            this.tab = sessionStorage.tab; //用sessionStorage中暫存的tab資料修改vue中的tab頁籤值
+        }  
+    },
     methods:{
         click_time(day,time){ //把點選的時間加入陣列
             
@@ -33,8 +38,9 @@ var app = new Vue({
             this.open_time={'星期一':[],'星期二':[],'星期三':[],'星期四':[],'星期五':[],'星期六':[],'星期日':[]}
         },
         switch_tab(e){ //切換後台的分頁(診單列表查詢、開診時間管理等等分頁的切換)
-            var tabid = e.target.dataset.id  //e.target.dataset 獲取view(dom)中定義的值   定義方法: data-*=某個值
-			this.tab=tabid
+            var tabid = e.target.dataset.id;  //e.target.dataset 獲取view(dom)中定義的值   定義方法: data-*=某個值
+            this.tab = tabid;
+            sessionStorage.tab = this.tab; //更新session中的tab值
         }
     },  
 })
