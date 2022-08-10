@@ -6,7 +6,7 @@ $('#year_select').val(currentYear);
 $('#month_select').val(currentMonth);
 
 function get_selected_data() {
-    axios.get('http://127.0.0.1:5000/report_export') //取得mongodb內所有診單資料
+    axios.get('https://brandon12345.ddns.net/report_export') //取得mongodb內所有診單資料
         .then(function (response) {
             var year = $("#year_select").val() //選擇年份
             var month = $('#month_select').val() //選擇月份
@@ -164,27 +164,28 @@ function get_selected_data() {
 }
 get_selected_data()//進入分頁就直接跑一次該月資料+圖表
 
-function export_report() {  //輸出報表按鈕功能
-    axios.get('http://127.0.0.1:5000/report_export') //取得mongodb內所有診單資料
+function export_report() {
+    axios.get('https://brandon12345.ddns.net/report_export') //取得mongodb內所有診單資料
         .then(function (response) {
-            var selectedVal = $("#month_select").val(); //選擇月份
+            var year = $("#year_select").val() //選擇年份
+            var month = $('#month_select').val() //選擇月份
             data = response.data;
             result_data = []
 
             data.forEach(function (value) {
-                if (value['預約日期'].substr(5, 2) === selectedVal) {
+                if (value['預約日期'].substr(0, 7) === (`${year}-${month}`)) {
                     result_data.push(value);
                 }
             })
             if (result_data.length != 0) {
                 const worksheet = XLSX.utils.json_to_sheet(result_data);
                 const workbook = XLSX.utils.book_new();
-                XLSX.utils.book_append_sheet(workbook, worksheet, selectedVal + "月診單資訊");
+                XLSX.utils.book_append_sheet(workbook, worksheet, year + month +"診單資訊");
                 XLSX.utils.sheet_add_aoa(worksheet, [], { origin: "A1" });
-                XLSX.writeFile(workbook, selectedVal + "月診單報表.xlsx");
+                XLSX.writeFile(workbook, year+"年"+month+"月診單報表.xlsx");
             }
         })
         .catch(function (error) {
             console.log(error);
         })
-    }
+}
